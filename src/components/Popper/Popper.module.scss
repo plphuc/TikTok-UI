@@ -1,6 +1,4 @@
 .wrapper {
-    display: flex;
-    flex-direction: column;
     width: 100%;
     max-height: min((100vh - 96px) - 60px, 734px);
     min-height: 100px;
@@ -8,4 +6,24 @@
     border-radius: 8px;
     background: rgb(255, 255, 255);
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
+    overflow-y: scroll;
+    /* width */
+&::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: #dad6d6; 
+  }
+  
+  /* Handle on hover */
+  &::-webkit-scrollbar-thumb:hover {
+    background: #9b9b9b; 
+  }
 }
