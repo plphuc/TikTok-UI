@@ -9,8 +9,13 @@ import {
     faKeyboard,
     faMagnifyingGlass,
     faSpinner,
+    faUser,
+    faGear,
+    faCoins,
+    faSignOut
 } from '@fortawesome/free-solid-svg-icons';
-import Tippy from '@tippyjs/react/headless';
+import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
 
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
@@ -18,6 +23,8 @@ import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import 'tippy.js/dist/tippy.css';
+import { MessageIcon, UploadIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -58,17 +65,39 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faKeyboard} />,
         title: 'Keyboard shortcuts',
-    },
+    }
 ];
 
+const USER_ITEMS = [
+    {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: 'View profile',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faCoins} />,
+        title: 'Get coins',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Settings',
+    },
+    ...MENU_ITEMS,
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: 'Log out',
+        to: '/logout',
+        separate: true,
+    }
+]
 function Header() {
+    const currentUser = true
     const [searchResult, setSearchResult] = useState(false)
 
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 <img src={images.logo} alt="Tiktok" className={cx('logo')}/>
-                <Tippy
+                <HeadlessTippy
                     interactive
                     visible={searchResult}
                     render={(attrs) => (
@@ -101,16 +130,40 @@ function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     </div>
-                </Tippy>
+                </HeadlessTippy>
 
                 <div className={cx('actions')}>
-                    <Button text>Upload</Button>
-                    <Button primary>Log in</Button>
+                    {
+                        currentUser ? 
+                        (<>
+                            <Tippy delay={[0, 50]} content="Upload" placement='bottom' >
+                                <button className={cx('header-btn', 'header-user')}>
+                                    <UploadIcon/>
+                                </button>
+                            </Tippy>
 
-                    <Menu items={MENU_ITEMS}>
-                        <button className={cx('more-btn')}>
+                            <Tippy delay={[0, 50]} content="Message" placement='bottom' >
+                                <button className={cx('header-btn', 'header-user')}>
+                                    <MessageIcon/>
+                                </button>
+                            </Tippy>
+
+                        </>) :
+                        (<>
+                            <Button text>Upload</Button>
+                            <Button primary>Log in</Button>
+                        </>)
+                    }
+                    <Menu items={currentUser ? USER_ITEMS : MENU_ITEMS}>    
+                        {currentUser ? 
+                        (<img
+                            className={cx('avatar')}
+                            src="https://i.pinimg.com/564x/43/cd/7c/43cd7c65d590d2f41c05a23f3dfe82d4.jpg"
+                            alt="Hoaa"
+                        />) :
+                        (<button className={cx('header-btn', 'more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                        </button>)}
                     </Menu>
                 </div>
             </div>

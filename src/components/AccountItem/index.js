@@ -11,7 +11,7 @@ function AccountItem({classes, checked=false}) {
         <div className={cx('wrapper', {[classes]: classes})}>
             <img
                 className={cx('avatar')}
-                src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/679a02c4a467f74df1905efde444c2dd~c5_100x100.jpeg?x-expires=1684087200&x-signature=TGZJHujkyQ0p9cDjYUbq%2FkCuTbA%3D"
+                src="https://i.pinimg.com/564x/43/cd/7c/43cd7c65d590d2f41c05a23f3dfe82d4.jpg"
                 alt="Hoaa"
             />
             <div className={cx('info')}>
