@@ -1,3 +1,5 @@
-export default function Upload() {
-    return <h1>Upload</h1>;
+function Upload() {
+    return <h2>Upload page</h2>;
 }
+
+export default Upload;
