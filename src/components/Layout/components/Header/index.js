@@ -29,6 +29,36 @@ const MENU_ITEMS = [
                 {
                     code: 'en',
                     title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
+                },{
+                    code: 'en',
+                    title: 'English'
                 },
                 {
                     code: 'vi',
