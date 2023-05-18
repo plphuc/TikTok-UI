@@ -9,13 +9,13 @@ import AccountItem from '~/components/AccountItem';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Search.module.scss'
 import { SearchIcon } from "~/components/Icons";
-import * as searchServices from "~/apiServices/searchServices";
+import * as searchServices from "~/services/searchService";
 const cx = classNames.bind(styles)
 
 export default function Search() {
     const [searchResult, setSearchResult] = useState([])
     const [searchValue, setSearchValue] = useState('')
-    const [showResult, setShowResult] = useState(true)
+    const [showResult, setShowResult] = useState(false)
     const [loading, setLoading] = useState(false)
     const inputRef = useRef()
     const debounced = useDebounce(searchValue, 500)
@@ -73,7 +73,7 @@ export default function Search() {
         
                                     <h4 className={cx('search-title')}>Accounts</h4>
                                     {searchResult.map((result) => {
-                                                return <AccountItem key={result.id} classes={cx('result')} result={result}/>})}
+                                        return <AccountItem key={result.id} classes={cx('result')} result={result}/>})}
                                 </div>
                         </PopperWrapper>
                     </div>

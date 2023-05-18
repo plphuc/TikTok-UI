@@ -7,7 +7,7 @@ import {
 import Tippy from '@tippyjs/react';
 import { Link } from 'react-router-dom';
 
-import routesConfig from '~/config/routes';
+import config from '~/config';
 import Button from '~/components/Button';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
@@ -111,13 +111,13 @@ const USER_ITEMS = [
     }
 ]
 function Header() {
-    const currentUser = true
+    const currentUser = false
 
 
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <Link to={routesConfig.home} className={cx('logo-link')}><img src={images.logo} alt="Tiktok" className={cx('logo')}/></Link>
+                <Link to={config.routes.home} className={cx('logo-link')}><img src={images.logo} alt="Tiktok" className={cx('logo')}/></Link>
 
                 <Search/>
 
@@ -146,7 +146,7 @@ function Header() {
                         </>) :
                         (<>
                             <Button text>Upload</Button>
-                            <Button primary>Log in</Button>
+                            <Button primary to='/'>Log in</Button>
                         </>)
                     }
                     <Menu items={currentUser ? USER_ITEMS : MENU_ITEMS}>    
