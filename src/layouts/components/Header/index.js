@@ -111,7 +111,7 @@ const USER_ITEMS = [
     }
 ]
 function Header() {
-    const currentUser = true
+    const currentUser = false
 
 
     return (
@@ -146,7 +146,7 @@ function Header() {
                         </>) :
                         (<>
                             <Button text>Upload</Button>
-                            <Button primary>Log in</Button>
+                            <Button primary to='/'>Log in</Button>
                         </>)
                     }
                     <Menu items={currentUser ? USER_ITEMS : MENU_ITEMS}>    
