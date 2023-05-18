@@ -73,7 +73,7 @@ export default function Search() {
         
                                     <h4 className={cx('search-title')}>Accounts</h4>
                                     {searchResult.map((result) => {
-                                                return <AccountItem key={result.id} classes={cx('result')} result={result}/>})}
+                                        return <AccountItem key={result.id} classes={cx('result')} result={result}/>})}
                                 </div>
                         </PopperWrapper>
                     </div>

@@ -1,0 +1,47 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px 0 26px;
+}
+
+.icon {
+    display: flex;
+}
+.active-icon {
+    display: none;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+
+    padding: 8px;
+
+    color: rgba(22, 24, 35, 1);
+
+    &:hover {
+        background: rgba(22, 24, 35, .03); 
+        border-radius: 4px;   
+    }
+    &.active {
+        color: rgba(254, 44, 85, 1) ;
+
+        .active-icon {
+            display: flex;
+        }
+
+        .icon {
+            display: none;
+        }
+    }
+}
+
+.title {
+    font-family: ProximaNova,Arial,Tahoma,PingFangSC,sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 25px;
+    margin-left: 8px;
+}
+
